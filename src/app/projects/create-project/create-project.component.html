@@ -1,0 +1,64 @@
+<div *ngIf="loading" class="app-page-spinner">
+    <mat-spinner color="primary"></mat-spinner>
+</div>
+<mat-toolbar *ngIf="!loading" color="primary">
+    <span class="center-text">Create Project</span>
+</mat-toolbar>
+<div class="back-button" *ngIf="!loading">
+    <button mat-icon-button (click)="goBack()">
+      <mat-icon>arrow_back</mat-icon>
+    </button>
+</div>
+<div class="form" *ngIf="!loading">
+    <form [formGroup]="createProjectFormGroup">
+        <mat-form-field class="form-field" appearance="outline">
+            <mat-label>Title</mat-label>
+            <input matInput formControlName="titleCtrl" type="text" required>
+        </mat-form-field>
+
+        <mat-form-field class="form-field" appearance="outline">
+            <mat-label>Description</mat-label>
+            <textarea matInput formControlName="descriptionCtrl"></textarea>
+
+        </mat-form-field>
+
+        <mat-form-field class="example-chip-list">
+            <mat-label>Status</mat-label>
+            <mat-chip-grid #chipGrid aria-label="Enter status" formControlName="statusCtrl">
+                <mat-chip-row *ngFor="let status of fixedStatus">
+                    {{status.name}}
+                </mat-chip-row>
+                <mat-chip-row *ngFor="let status of addedStatus"
+                                (removed)="removeStatus(status)"
+                                [editable]="true"
+                                [aria-description]="'press enter to edit ' + status.name">
+                    {{status.name}}
+                    <button matChipRemove [attr.aria-label]="'remove ' + status.name">
+                    <mat-icon>cancel</mat-icon>
+                    </button>
+                </mat-chip-row>
+                <input placeholder="New status..."
+                     [matChipInputFor]="chipGrid"
+                     [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+                     [matChipInputAddOnBlur]="addOnBlur"
+                     (matChipInputTokenEnd)="addStatus($event)"/>
+            </mat-chip-grid>
+          </mat-form-field>
+
+        <mat-form-field class="form-field" appearance="outline">
+            <mat-label>Members</mat-label>
+            <mat-select formControlName="membersCtrl" multiple>
+              <mat-option *ngFor="let member of allMembers" [value]="member._id">{{ member.name }}</mat-option>
+            </mat-select>
+        </mat-form-field>
+    </form>
+    
+    <div class="step-nav-ctn">
+        <button 
+            mat-stroked-button
+            [disabled]="createProjectFormGroup.invalid"
+            color="primary" (click)="onSubmit()"
+            >Create Project
+        </button>
+    </div>
+</div>

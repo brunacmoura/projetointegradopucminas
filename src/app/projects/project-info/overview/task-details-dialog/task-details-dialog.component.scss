@@ -1,0 +1,87 @@
+.task-details {
+    padding: 20px;
+  
+    .header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 10px;
+    
+        h1 {
+          font-size: 1.5em;
+          margin: 0;
+        }
+
+        button {
+          background: none;
+          border: none;
+          cursor: pointer;
+          align-self: flex-start;
+        }
+    }
+
+    .header-hidden {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      margin-bottom: 10px;
+
+      ng-container {
+        visibility: hidden;
+      }
+      button {
+        background: none;
+        border: none;
+        cursor: pointer;
+        align-self: flex-start;
+      }
+    }
+  
+    .property-title {
+      font-size: 28px;
+      margin-bottom: 10px;
+    }
+    
+    .property-description {
+      font-size: 16px;
+      color: #666; 
+      margin-bottom: 10px;
+    }
+
+    .property-delivery-date {
+      font-size: 14px;
+      margin-top: 40px;
+      span {
+        font-weight: bold;
+      }
+    }
+}
+
+.hidden-content {
+  visibility: hidden;
+}
+
+.tag {
+  border-radius: 5px;
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+}
+.actions {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 20px;
+}
+
+.actions button {
+  margin-right: 10px;
+}
+
+.confirmation-message {
+  margin-bottom: 10px;
+  text-align: center;
+  color: #ff0000;
+}
+  

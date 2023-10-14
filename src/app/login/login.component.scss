@@ -1,0 +1,51 @@
+@import '~@fortawesome/fontawesome-free/css/all.css';
+
+.login-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+  }
+  
+h2 {
+    font-size: 2em;
+    margin-bottom: 20px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+input {
+    padding: 8px;
+    width: 100%;
+    box-sizing: border-box;
+    margin-bottom: 10px;
+}
+
+.step-nav-ctn {
+    width: 100%;
+    max-width: 400px; 
+    margin-bottom: 20px;
+}
+
+button[mat-stroked-button][color="primary"] {
+    display: block; 
+    margin: 0 auto;
+    background-color: #191970;
+    color: #FFFAFA;
+}
+
+.error-message {
+    background-color: #ff4d4f;
+    color: #fff; 
+    padding: 10px;
+    margin-top: 10px;
+    border-radius: 4px;
+}

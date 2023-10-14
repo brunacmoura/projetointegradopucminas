@@ -1,0 +1,55 @@
+.buttons {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+}
+
+.buttons button {
+  margin-right: 10px;
+}
+
+.wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 40px;
+}
+
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.button {
+  text-align: center;
+  background-color: #000080;
+  color: #FFF;
+  margin: 10px;
+  width: 200px;
+  padding: 30px;
+  cursor: pointer;
+  border-radius: 10px;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.button:hover {
+  background-color: #1565C0;
+}
+
+.card-title {
+  font-size: 18px;
+}
+
+.divider {
+  border-right: 1px solid #ddd;
+  height: 100%;
+  margin: 0 10px;
+}
+
+.app-page-spinner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 30px;
+}

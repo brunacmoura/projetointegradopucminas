@@ -1,0 +1,21 @@
+
+<div class="buttons">
+    <button mat-raised-button color="primary" (click)="goToCreateProjectPage()">Create Project</button>
+    <button mat-raised-button (click)="signout()">Sign out</button>
+</div>
+<div *ngIf="loading" class="app-page-spinner">
+    <mat-spinner color="primary"></mat-spinner>
+</div>
+<div class="wrapper" *ngIf="!loading">
+    <mat-card class="content">
+        <ng-container *ngFor="let project of projects">
+            <button class="button" (click)="goToProjectInfoPage(project.page)">
+                <div>
+                    <p class="card-title">{{ project.name }}</p>
+                </div>
+            </button>
+        </ng-container>
+    </mat-card>
+</div>
+
+  

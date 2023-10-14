@@ -1,0 +1,26 @@
+<div *ngIf="loading" class="app-page-spinner">
+    <mat-spinner color="primary"></mat-spinner>
+</div>
+
+<div *ngIf="project && tasks && !loading" class="kanban-board" >
+    <div class="search-and-create">
+        <input type="text" class="input-search" placeholder="Search task..."/>
+        <button mat-raised-button color="primary" class="button-search" (click)="createTask()">Create Task</button>
+    </div>
+
+    <div class="columns">
+        <div class="column" style="background-color: #191970;" *ngFor="let status of project.status; let i=index;" (mouseenter)="enter(i)" cdkDropList (cdkDropListDropped)="drop($event)" [cdkDropListData]="{ status: status }">
+          <h2>{{ status }}</h2>
+          <div class="task" *ngFor="let task of getTasksByStatus(status)"  (click)="openTaskDetailsDialog(task)" cdkDrag [cdkDragData]="{ task: task }">
+            <div class="user">
+              <mat-icon>person</mat-icon>
+              {{ task.owner_info }}
+            </div>
+            <div class="title">
+              {{ task.title }}
+            </div>
+          </div>
+        </div>
+    </div>
+    <button class="signout-button" mat-raised-button (click)="signout()">Sign out</button>
+</div>
