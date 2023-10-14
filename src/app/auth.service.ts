@@ -20,7 +20,6 @@ export class AuthService {
           this.isAuthenticated = true;
         },
         error => {
-          console.log('Login error', error);
           this.isAuthenticated = false;
           observer.error(error);
         }

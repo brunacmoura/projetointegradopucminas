@@ -53,8 +53,6 @@ export class CreateTaskComponent {
       this.appService.createTask(formValues).subscribe(() => {
         this.location.back();
       })
-    } else {
-      console.log('Invalid form. Some field may be missing or invalid.');
     }
   }
 

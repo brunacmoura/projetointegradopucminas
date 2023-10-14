@@ -83,8 +83,6 @@ export class EditTaskComponent {
         })
       }
 
-    } else {
-      console.log('Invalid form. Some field may be missing or invalid.');
     }
   }
 

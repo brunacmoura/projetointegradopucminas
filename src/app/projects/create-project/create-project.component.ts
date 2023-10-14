@@ -89,8 +89,6 @@ export class CreateProjectComponent {
       this.appService.createProject(formValues).subscribe(() => {
         this.router.navigate(['/projects']);
       })
-    } else {
-      console.log('Invalid form. Some field may be missing or invalid.');
     }
   }
 

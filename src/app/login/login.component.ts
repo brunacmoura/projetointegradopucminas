@@ -21,7 +21,6 @@ export class LoginComponent {
         this.router.navigate(['/projects']);
       },
       (error: any) => {
-        console.log('Login failed', error);
         this.errorMessage = 'Invalid credentials. Please, try again later.'; 
       }
     );
