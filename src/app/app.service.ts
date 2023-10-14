@@ -2,23 +2,6 @@ import { Injectable } from '@angular/core';
 import { AppApi } from './app.api';
 import { Observable } from 'rxjs';
 
-
-export interface ProjectCreated{
-  title: string; 
-  description: string;
-  status: Array<string>;
-  members: Array<number>;
-}
-
-export interface TaskCreated{
-  titleCtrl: string; 
-  descriptionCtrl: string;
-  deliveryDateCtrl: Date;
-  responsibleCtrl: number;
-  tagCtrl: string;
-  projectId: string;
-}
-
 @Injectable({
   providedIn: 'root'
 })
@@ -91,7 +74,7 @@ export class AppService {
     })
   }
 
-  createProject(body: ProjectCreated) {
+  createProject(body: any) {
     return new Observable<any>((observer) => {
       this.appApi.createProject(body).subscribe(
         next => {

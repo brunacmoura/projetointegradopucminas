@@ -5,12 +5,6 @@ import { COMMA, ENTER } from '@angular/cdk/keycodes';
 import { Location } from '@angular/common';
 import { ProjectInfoService } from '../../project-info.service';
 
-
-export interface Member {
-  _id: number;
-  name: string;
-}
-
 @Component({
   selector: 'app-create-task',
   templateUrl: './create-task.component.html',
@@ -30,12 +24,12 @@ export class CreateTaskComponent {
   }
 
   createTaskFormGroup!: FormGroup;
-  allMembers: Array<Member> = [];
+  allMembers: Array<any> = [];
   allTags: Array<string> = [];
   loading = true;
   addOnBlur = true;
   readonly separatorKeysCodes = [ENTER, COMMA] as const;
-  selectedMemberOptions: Array<Member> = [] 
+  selectedMemberOptions: Array<any> = [] 
   project: any;
 
   async ngOnInit() {

@@ -5,11 +5,6 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { COMMA, ENTER } from '@angular/cdk/keycodes';
 import { AppService } from 'src/app/app.service';
 
-export interface Member {
-  _id: number;
-  name: string;
-}
-
 @Component({
   selector: 'app-edit-task',
   templateUrl: './edit-task.component.html',
@@ -31,11 +26,11 @@ export class EditTaskComponent {
   editTaskFormGroup!: FormGroup;
   task: any;
   loading: boolean = true;
-  allMembers: Array<Member> = [];
+  allMembers: Array<any> = [];
   allTags: Array<string> = [];
   addOnBlur = true;
   readonly separatorKeysCodes = [ENTER, COMMA] as const;
-  selectedMemberOptions: Array<Member> = [] 
+  selectedMemberOptions: Array<any> = [] 
   project: any;
   originalValues: any;
 

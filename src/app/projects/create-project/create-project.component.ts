@@ -10,11 +10,6 @@ export interface Status {
   name: string;
 }
 
-export interface Member {
-  _id: number;
-  name: string;
-}
-
 @Component({
   selector: 'app-create-project',
   templateUrl: './create-project.component.html',
@@ -30,13 +25,13 @@ export class CreateProjectComponent {
     }
 
   createProjectFormGroup!: FormGroup;
-  allMembers: Array<Member> = [];
+  allMembers: Array<any> = [];
   loading = true;
   addOnBlur = true;
   readonly separatorKeysCodes = [ENTER, COMMA] as const;
   fixedStatus: Status[] = [{name: 'Backlog'}, {name: 'To do'}, {name: 'Doing'}, {name: 'Done'}];
   addedStatus: Status[] = []
-  selectedMemberOptions: Array<Member> = [] 
+  selectedMemberOptions: Array<any> = [] 
 
   async ngOnInit() {    
     this.appService.getMembers().subscribe(response => {
