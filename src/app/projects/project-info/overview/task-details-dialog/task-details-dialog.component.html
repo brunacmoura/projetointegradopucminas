@@ -1,0 +1,41 @@
+<div class="task-details">
+  <div [ngClass]="{'header': !confirming, 'header-hidden': confirming}">
+    <ng-container *ngIf="!confirming">
+      <mat-chip class="tag">{{ data.tag }}</mat-chip>
+      <div class="user-info">
+        <mat-icon>person</mat-icon>
+        <span>{{ data.owner_info ? data.owner_info : 'No responsible'}}</span>
+      </div>
+      <mat-chip color="accent">{{ data.status }}</mat-chip>
+    </ng-container>
+    <button mat-icon-button (click)="closeDialog()">
+      <mat-icon>close</mat-icon>
+    </button>
+  </div>
+  <div class="content" *ngIf="!confirming; else confirmationContent">
+    <div class="property-title">
+      {{ data.title }}
+    </div>
+    <div class="property-description">
+      {{ data.description }}
+    </div>
+    <div class="property-delivery-date">
+      <span>Delivery Date: </span> 
+      <ng-container *ngIf="data.delivery_date; else noDate">{{ data.delivery_date | date:'dd/MM/yyyy' }}</ng-container>
+      <ng-template #noDate>No date</ng-template>
+    </div>
+    <div class="actions">
+      <button mat-raised-button color="warn" (click)="confirmRemove()">Remove Task</button>
+      <button mat-raised-button color="primary" (click)="editTask()">Edit</button>
+    </div>
+  </div>
+  <ng-template #confirmationContent>
+    <div class="confirmation-message">
+      <p>Are you sure you want to remove this task?</p>
+    </div>
+    <div class="actions">
+      <button mat-raised-button color="warn" (click)="removeTask()">Confirm</button>
+      <button mat-raised-button (click)="cancelRemove()">Cancel</button>
+    </div>
+  </ng-template>
+</div>

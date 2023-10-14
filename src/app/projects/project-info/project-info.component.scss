@@ -1,0 +1,49 @@
+.fixed-screen {
+    height: 100vh; 
+    overflow: hidden; 
+    display: flex; 
+    flex-direction: column; 
+}
+
+.sidenav-container {
+    flex: 1; 
+    display: flex; 
+    flex-direction: column; 
+    height: 100%;
+    margin-top: 64px
+}  
+
+mat-sidenav {
+    width: 200px; 
+}
+
+.fill-remaining-space {
+    flex: 1 1 auto;
+}
+  
+mat-toolbar {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 2;
+    background-color: #191970;
+    color: #F0F8FF;
+}
+
+.link-style {
+    cursor: pointer;
+}
+
+.always-active {
+    background-color: #4169E1;
+}
+
+.app-page-spinner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 30px;
+
+}
+
+  
