@@ -5,6 +5,7 @@ import { COMMA, ENTER } from '@angular/cdk/keycodes';
 import { MatChipInputEvent } from '@angular/material/chips';
 import { Router } from '@angular/router';
 import { Location } from '@angular/common';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 export interface Status {
   name: string;
@@ -16,7 +17,11 @@ export interface Status {
   styleUrls: ['./create-project.component.scss']
 })
 export class CreateProjectComponent {
-  constructor(private fb: FormBuilder, private appService: AppService, private router: Router, private location: Location){
+  constructor(private fb: FormBuilder, 
+              private appService: AppService, 
+              private router: Router, 
+              private location: Location,
+              private _snackBar: MatSnackBar){
       this.createProjectFormGroup = this.fb.group({
       titleCtrl: ['', Validators.required],
       descriptionCtrl: [''],
@@ -86,13 +91,27 @@ export class CreateProjectComponent {
       
       formValues.statusCtrl = allStatus;
       
-      this.appService.createProject(formValues).subscribe(() => {
-        this.router.navigate(['/projects']);
+      this.appService.createProject(formValues).subscribe((response) => {
+        if (response.code == 400){
+          this.openSnackBar(response.error, 'red-snackbar');
+        }
+        else {
+          this.router.navigate(['/projects']);
+        }
       })
     }
   }
 
   goBack(): void {
     this.location.back();
+  }
+
+  openSnackBar(message: string, panelClass: string): void {
+    this._snackBar.open(message, 'Close', {
+      duration: 5000,
+      horizontalPosition: 'center',
+      verticalPosition: 'bottom',
+      panelClass: [panelClass]
+    });
   }
 }

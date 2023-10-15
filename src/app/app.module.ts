@@ -30,6 +30,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { TaskDetailsDialogComponent } from './projects/project-info/overview/task-details-dialog/task-details-dialog.component';
 import { DragDropModule } from '@angular/cdk/drag-drop';
 import { EditTaskComponent } from './projects/project-info/overview/edit-task/edit-task.component';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 @NgModule({
   declarations: [
@@ -65,7 +66,8 @@ import { EditTaskComponent } from './projects/project-info/overview/edit-task/ed
     MatDatepickerModule,
     MatNativeDateModule,
     MatDialogModule,
-    DragDropModule
+    DragDropModule,
+    MatSnackBarModule
   ],
   providers: [],
   bootstrap: [AppComponent]

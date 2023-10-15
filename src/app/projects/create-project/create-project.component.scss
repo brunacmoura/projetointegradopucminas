@@ -50,3 +50,8 @@ button[mat-stroked-button][color="primary"] {
     padding: 30px;
 
 }
+
+::ng-deep .red-snackbar {
+    background-color: red;
+    color: white;
+  }
