@@ -7,7 +7,7 @@
     <mat-spinner color="primary"></mat-spinner>
 </div>
 <div class="wrapper" *ngIf="!loading">
-    <mat-card class="content">
+    <mat-card class="content" *ngIf="projects.length > 0">
         <ng-container *ngFor="let project of projects">
             <button class="button" (click)="goToProjectInfoPage(project.page)">
                 <div>
@@ -16,6 +16,7 @@
             </button>
         </ng-container>
     </mat-card>
+    <span *ngIf="projects.length == 0">No projects created.</span>
 </div>
 
   
