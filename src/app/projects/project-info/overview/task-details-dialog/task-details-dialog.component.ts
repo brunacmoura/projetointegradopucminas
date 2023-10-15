@@ -32,7 +32,7 @@ export class TaskDetailsDialogComponent {
       const result = {
         action: 'delete'
       }
-      this.dialogRef.close();
+      this.dialogRef.close(result);
     });
   }
 
