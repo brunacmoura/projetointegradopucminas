@@ -8,7 +8,7 @@ import { Observable, catchError, throwError } from 'rxjs';
 })
 export class AppApi {
 
-  private apiUrl = 'http://localhost:5000';
+  private apiUrl = 'https://projetopucgerenciamentodeprojetospos.azurewebsites.net';
   user: any;
   
   constructor(private http: HttpClient) { }
