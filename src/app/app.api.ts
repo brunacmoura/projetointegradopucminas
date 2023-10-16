@@ -23,7 +23,7 @@ export class AppApi {
   }
 
   getProjects(): Observable<any> {
-    const url = `${this.apiUrl}/projects`
+    const url = `${this.apiUrl}/projects/`
     return this.http.get<any>(url).pipe(
       catchError((err) => {
         return throwError(err)
